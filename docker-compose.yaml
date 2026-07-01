@@ -2,33 +2,48 @@ services:
   postgres:
     image: postgres:15
     container_name: gps_guardian_escolar_postgres
+    restart: unless-stopped
+
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-gps_guardian_escolar}
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
     ports:
       - "5432:5432"
+
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 10s
       timeout: 5s
       retries: 5
 
   liquibase:
-    image: liquibase/liquibase:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.liquibase
+
     container_name: gps_guardian_escolar_liquibase
+
     depends_on:
       postgres:
         condition: service_healthy
+
+    working_dir: /workspace
+
     volumes:
-      - .:/liquibase/changelog
-      - ./drivers:/liquibase/lib
+      - .:/workspace
+
     command:
-      - --defaults-file=/liquibase/changelog/liquibase.properties
+      - --changeLogFile=changelog/changelog-master.yaml
+      - --search-path=/workspace
+      - --url=jdbc:postgresql://postgres:5432/${POSTGRES_DB}
+      - --username=${POSTGRES_USER}
+      - --password=${POSTGRES_PASSWORD}
       - update
 
 volumes:
   postgres_data:
-    name: gps_guardian_escolar_postgres_data
