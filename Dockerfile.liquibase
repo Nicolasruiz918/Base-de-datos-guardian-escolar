@@ -1,3 +1,0 @@
-FROM liquibase/liquibase:4.31.1
-
-RUN lpm add postgresql
