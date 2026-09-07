@@ -1,0 +1,16 @@
+DROP TRIGGER IF EXISTS trg_user_devices_updated_at ON user_devices;
+DROP TRIGGER IF EXISTS trg_notification_receipts_updated_at ON notification_receipts;
+DROP TRIGGER IF EXISTS trg_notification_settings_updated_at ON notification_settings;
+DROP TRIGGER IF EXISTS trg_coordinates_updated_at ON coordinates;
+DROP TRIGGER IF EXISTS trg_trips_updated_at ON trips;
+DROP TRIGGER IF EXISTS trg_safe_zones_updated_at ON safe_zones;
+DROP TRIGGER IF EXISTS trg_security_settings_updated_at ON security_settings;
+DROP TRIGGER IF EXISTS trg_password_policies_updated_at ON password_policies;
+DROP TRIGGER IF EXISTS trg_user_sessions_updated_at ON user_sessions;
+DROP TRIGGER IF EXISTS trg_permissions_updated_at ON permissions;
+DROP TRIGGER IF EXISTS trg_roles_updated_at ON roles;
+DROP TRIGGER IF EXISTS trg_stops_updated_at ON stops;
+DROP TRIGGER IF EXISTS trg_routes_updated_at ON routes;
+DROP TRIGGER IF EXISTS trg_emergency_contacts_updated_at ON emergency_contacts;
+DROP TRIGGER IF EXISTS trg_students_updated_at ON students;
+DROP TRIGGER IF EXISTS trg_users_updated_at ON users;

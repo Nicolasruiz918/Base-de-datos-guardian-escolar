@@ -1,1 +1,161 @@
-databaseChangeLog: []
+databaseChangeLog:
+  - changeSet:
+      id: 004a-ddl-add-users-foreign-keys
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/04_alter/001_users_foreign_keys.sql
+      labels: "ddl,alter,foreign-keys,users"
+      comment: Adds user and student foreign key constraints after all base tables are created.
+      changes:
+        - sqlFile:
+            path: 001_users_foreign_keys.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/001_users_foreign_keys.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 004b-ddl-add-routes-foreign-keys
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/04_alter/002_routes_foreign_keys.sql
+      labels: "ddl,alter,foreign-keys,routes"
+      comment: Adds route and stop foreign key constraints.
+      changes:
+        - sqlFile:
+            path: 002_routes_foreign_keys.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/002_routes_foreign_keys.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 004c-ddl-add-security-foreign-keys
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/04_alter/003_security_foreign_keys.sql
+      labels: "ddl,alter,foreign-keys,security"
+      comment: Adds security and RBAC foreign key constraints.
+      changes:
+        - sqlFile:
+            path: 003_security_foreign_keys.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/003_security_foreign_keys.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 004d-ddl-add-safe-zones-foreign-keys
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/04_alter/004_safe_zones_foreign_keys.sql
+      labels: "ddl,alter,foreign-keys,safe-zones"
+      comment: Adds safe zone foreign key constraints.
+      changes:
+        - sqlFile:
+            path: 004_safe_zones_foreign_keys.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/004_safe_zones_foreign_keys.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 004e-ddl-add-trips-tracking-foreign-keys
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/04_alter/005_trips_tracking_foreign_keys.sql
+      labels: "ddl,alter,foreign-keys,trips,tracking"
+      comment: Adds trip and coordinate tracking foreign key constraints.
+      changes:
+        - sqlFile:
+            path: 005_trips_tracking_foreign_keys.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/005_trips_tracking_foreign_keys.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 004f-ddl-add-notifications-foreign-keys
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/04_alter/006_notifications_foreign_keys.sql
+      labels: "ddl,alter,foreign-keys,notifications"
+      comment: Adds notification foreign key constraints.
+      changes:
+        - sqlFile:
+            path: 006_notifications_foreign_keys.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/006_notifications_foreign_keys.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 004g-ddl-add-audit-logs-foreign-keys
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/04_alter/007_audit_logs_foreign_keys.sql
+      labels: "ddl,alter,foreign-keys,audit,logs"
+      comment: Adds audit and log foreign key constraints.
+      changes:
+        - sqlFile:
+            path: 007_audit_logs_foreign_keys.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/007_audit_logs_foreign_keys.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 004h-ddl-add-push-devices-foreign-keys
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/04_alter/008_push_devices_foreign_keys.sql
+      labels: "ddl,alter,foreign-keys,push,devices"
+      comment: Adds push device foreign key constraints.
+      changes:
+        - sqlFile:
+            path: 008_push_devices_foreign_keys.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/008_push_devices_foreign_keys.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
