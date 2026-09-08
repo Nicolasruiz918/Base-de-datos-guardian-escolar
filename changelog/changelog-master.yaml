@@ -1,4 +1,8 @@
 databaseChangeLog:
-    - include:
-          file: ../01_ddl/changelog.yaml
-          relativeToChangelogFile: true
+        - include:
+                  file: 01_ddl/changelog.yaml
+                  relativeToChangelogFile: false
+
+        - include:
+                  file: 02_dml/changelog.yaml
+                  relativeToChangelogFile: false
