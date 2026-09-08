@@ -1,0 +1,10 @@
+ALTER TABLE emergency_contacts DROP CONSTRAINT IF EXISTS fk_emergency_contacts_updated_by;
+ALTER TABLE emergency_contacts DROP CONSTRAINT IF EXISTS fk_emergency_contacts_created_by;
+ALTER TABLE emergency_contacts DROP CONSTRAINT IF EXISTS fk_emergency_contacts_student;
+ALTER TABLE student_guardians DROP CONSTRAINT IF EXISTS fk_student_guardians_user;
+ALTER TABLE student_guardians DROP CONSTRAINT IF EXISTS fk_student_guardians_student;
+ALTER TABLE students DROP CONSTRAINT IF EXISTS fk_students_updated_by;
+ALTER TABLE students DROP CONSTRAINT IF EXISTS fk_students_created_by;
+ALTER TABLE students DROP CONSTRAINT IF EXISTS fk_students_user;
+ALTER TABLE users DROP CONSTRAINT IF EXISTS fk_users_updated_by;
+ALTER TABLE users DROP CONSTRAINT IF EXISTS fk_users_created_by;

@@ -1,0 +1,2 @@
+DROP PROCEDURE IF EXISTS sp_mark_notification_read(UUID, UUID);
+DROP PROCEDURE IF EXISTS sp_register_activity(UUID, VARCHAR, TEXT, INET, JSONB);
