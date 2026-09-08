@@ -1,1 +1,61 @@
-databaseChangeLog: []
+databaseChangeLog:
+  - changeSet:
+      id: 009a-dml-refresh-materialized-views
+      author: gps-guardian-escolar
+      logicalFilePath: 02_dml/04_patches/001_refresh_materialized_views.sql
+      labels: "dml,patch,materialized-views"
+      comment: Refreshes materialized views after initial or bulk data loads.
+      changes:
+        - sqlFile:
+            path: 001_refresh_materialized_views.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/04_patches/001_refresh_materialized_views.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 010a-dml-add-device-confirmation-return-url
+      author: gps-guardian-escolar
+      logicalFilePath: 02_dml/04_patches/002_add_device_confirmation_return_url.sql
+      labels: "dml,patch,security"
+      comment: Adds the return URL used after confirming a new login device.
+      changes:
+        - sqlFile:
+            path: 002_add_device_confirmation_return_url.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/04_patches/002_add_device_confirmation_return_url.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 011a-dml-harden-user-registration-rules
+      author: gps-guardian-escolar
+      logicalFilePath: 02_dml/04_patches/003_harden_user_registration_rules.sql
+      labels: "dml,patch,users,security"
+      comment: Adds stronger user registration constraints for email and phone fields.
+      changes:
+        - sqlFile:
+            path: 003_harden_user_registration_rules.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/04_patches/003_harden_user_registration_rules.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false

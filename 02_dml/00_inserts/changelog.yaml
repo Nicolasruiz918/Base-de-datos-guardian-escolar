@@ -1,1 +1,41 @@
-databaseChangeLog: []
+databaseChangeLog:
+  - changeSet:
+      id: 005a-dml-security-catalog
+      author: gps-guardian-escolar
+      logicalFilePath: 02_dml/00_inserts/001_security_catalog.sql
+      labels: "dml,system,inserts,security"
+      comment: Loads required roles, permissions and security defaults.
+      changes:
+        - sqlFile:
+            path: 001_security_catalog.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/001_security_catalog.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 005b-dml-admin-user
+      author: gps-guardian-escolar
+      logicalFilePath: 02_dml/00_inserts/002_admin_user.sql
+      labels: "dml,system,inserts,admin"
+      comment: Loads the required administrator account.
+      changes:
+        - sqlFile:
+            path: 002_admin_user.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/002_admin_user.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
