@@ -1,1 +1,161 @@
-databaseChangeLog: []
+databaseChangeLog:
+  - changeSet:
+      id: 003a-ddl-create-users
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/03_tables/001_users.sql
+      labels: "ddl,tables,users"
+      comment: Creates user, student and emergency contact tables.
+      changes:
+        - sqlFile:
+            path: 001_users.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/001_users.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 003b-ddl-create-routes
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/03_tables/002_routes.sql
+      labels: "ddl,tables,routes"
+      comment: Creates route, student-route assignment and stop tables.
+      changes:
+        - sqlFile:
+            path: 002_routes.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/002_routes.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 003c-ddl-create-security
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/03_tables/003_security.sql
+      labels: "ddl,tables,security"
+      comment: Creates RBAC, user session and security configuration tables.
+      changes:
+        - sqlFile:
+            path: 003_security.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/003_security.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 003d-ddl-create-safe-zones
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/03_tables/004_safe_zones.sql
+      labels: "ddl,tables,safe-zones"
+      comment: Creates safe zone tables for geolocation rules.
+      changes:
+        - sqlFile:
+            path: 004_safe_zones.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/004_safe_zones.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 003e-ddl-create-trips-tracking
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/03_tables/005_trips_tracking.sql
+      labels: "ddl,tables,trips,tracking"
+      comment: Creates trip and coordinate tracking tables.
+      changes:
+        - sqlFile:
+            path: 005_trips_tracking.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/005_trips_tracking.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 003f-ddl-create-notifications
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/03_tables/006_notifications.sql
+      labels: "ddl,tables,notifications,push"
+      comment: Creates notification, notification receipt and notification preference tables.
+      changes:
+        - sqlFile:
+            path: 006_notifications.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/006_notifications.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 003g-ddl-create-audit-logs
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/03_tables/007_audit_logs.sql
+      labels: "ddl,tables,audit,logs"
+      comment: Creates activity, audit and error log tables.
+      changes:
+        - sqlFile:
+            path: 007_audit_logs.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/007_audit_logs.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 003h-ddl-create-push-devices
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/03_tables/008_push_devices.sql
+      labels: "ddl,tables,notifications,push,expo"
+      comment: Creates user device table for Expo Push tokens.
+      changes:
+        - sqlFile:
+            path: 008_push_devices.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/008_push_devices.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false

@@ -1,1 +1,41 @@
-databaseChangeLog: []
+databaseChangeLog:
+  - changeSet:
+      id: 004-ddl-create-indexes
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/10_indexes/001_indexes.sql
+      labels: "ddl,indexes,performance"
+      comment: Creates indexes defined by the documented relational model.
+      changes:
+        - sqlFile:
+            path: 001_indexes.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/10_indexes/001_indexes.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+  - changeSet:
+      id: 005-ddl-normalization-constraints
+      author: gps-guardian-escolar
+      logicalFilePath: 01_ddl/10_indexes/002_normalization_constraints.sql
+      labels: "ddl,indexes,normalization,3nf"
+      comment: Adds unique integrity indexes that preserve normalized relationships.
+      changes:
+        - sqlFile:
+            path: 002_normalization_constraints.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/10_indexes/002_normalization_constraints.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            endDelimiter: ;
+            stripComments: false
