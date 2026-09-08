@@ -1,0 +1,9 @@
+DELETE FROM notification_settings
+WHERE user_id = '33333333-3333-3333-3333-333333333333';
+
+DELETE FROM user_roles
+WHERE user_id = '33333333-3333-3333-3333-333333333333';
+
+DELETE FROM users
+WHERE id = '33333333-3333-3333-3333-333333333333'
+   OR email = 'gpsguardianescolar@gmail.com';
