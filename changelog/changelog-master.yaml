@@ -6,3 +6,7 @@ databaseChangeLog:
         - include:
                   file: 02_dml/changelog.yaml
                   relativeToChangelogFile: false
+
+        - include:
+                  file: 03_dcl/changelog.yaml
+                  relativeToChangelogFile: false
