@@ -12,6 +12,12 @@ La documentacion completa de base de datos esta centralizada en:
 
 ## Ejecucion rapida
 
+Crear el archivo local de variables de entorno y completar `POSTGRES_PASSWORD`:
+
+```bash
+cp .env.example .env
+```
+
 Levantar solo PostgreSQL:
 
 ```bash
